@@ -55,4 +55,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   - sudo update-ca-trust extract
   
   ![Cert update](/images/certupdate.jpg)
+  
+  8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
+  - ./openshift-install create cluster --dir=ocp45 --log-level=info
 
