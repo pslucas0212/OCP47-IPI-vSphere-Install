@@ -5,7 +5,9 @@ The lab I'm using for this installation is made up of three x86 8-core 64GB RAM 
 
 OCP 4.5 installation documentation can be found here -> https://docs.openshift.com/container-platform/4.5/welcome/index.html
 
-Installation Pre-reqs:
+## Installation Steps
+
+###Installation Pre-reqs:
 For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to the cluster.
 - DNS service - For the installation you need to define two static IP address.  One for the cluster api access - api.ocp4.example.com and one for cluster ingress access *.apps.ocp4.example.com. For my lab I use example.com as the domain.
   - Forward zone settings
@@ -16,4 +18,8 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     - *.apps.ocp4	A	10.1.10.182
     - 181	IN	PTR	api.ocp4.example.com.
 - DHCP service
+
+### Optional - Create an ssh key for password-less ssh to the ssh to master node for debugging, etc.
+1. Create ssh key 
+  - ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
 
