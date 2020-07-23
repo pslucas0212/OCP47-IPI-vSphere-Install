@@ -35,6 +35,8 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  2. After you logon, chose the vSphere tile
  
  ![vSphere Tile](/images/vspheretile.jpg)
+ 3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button
  
+ ![Download page](/images/download.jpg)
 
 
