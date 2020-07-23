@@ -30,3 +30,4 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   ![SSH agent](/images/ssh02.jpg)
 
+
