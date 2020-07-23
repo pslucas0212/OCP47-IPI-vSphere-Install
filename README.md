@@ -25,4 +25,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   ![SSH command](/images/SSHKey01.jpg)
   
+  2. Start up ssh-agent and add the new key to the ssh-agent.  This key will be added during the installation.
+  
+  ![SSH agent](/images/sshkey02.jpg)
 
