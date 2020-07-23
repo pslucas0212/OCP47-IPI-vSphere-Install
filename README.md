@@ -54,5 +54,5 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   - sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
   - sudo update-ca-trust extract
   
-  ![Cert update]/images/certupdate.jpg
+  ![Cert update](/images/certupdate.jpg)
 
