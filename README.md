@@ -38,5 +38,11 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  ![Download page](/images/download.jpg)
-
+ 
+ 4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
+  - tar xvf openshift-install-linux.tar.gz
+  
+  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
+  
+  ![vCenter certificates download](/images/certs.jpg)
 
