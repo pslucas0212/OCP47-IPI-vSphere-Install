@@ -21,7 +21,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 - DHCP service - no particular notes needed here
 
 ### Optional - Create an ssh key for password-less ssh to the ssh to master node for debugging, etc.
-1. Create ssh key 
+1. Create an ssh key 
         
         ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
   
