@@ -33,7 +33,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
     <img src="images/ssh02.jpg" width="600"/>
  
- ### Get installation software
+ ### Get the OCP 4.5 installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
   
  2. After you logon, chose the vSphere tile
@@ -42,12 +42,11 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  <img src="images/download.jpg" width="600"/>
-  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
+   4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
 
       tar xvf openshift-install-linux.tar.gz
 
- 5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
-  
+  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
    <img src="images/certs.jpg" width="950"/>
  6. Unzip the download.zip that contains the certs.  In the resutling certs folder you'll see subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
