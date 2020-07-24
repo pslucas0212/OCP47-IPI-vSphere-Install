@@ -58,4 +58,25 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
   - ./openshift-install create cluster --dir=ocp45 --log-level=info
+  
+  The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
+  
+  Here is the list of questions the installer will ask you:
+    1. SSH Public Key
+    2. Platform - chose vSphere
+    3. vCenter - provide the url to your vCenter - vsca01.exanple.com
+    - You may be also prompted for a vSphere datacenter and vSphere cluster if have more than one option available to you.
+    4. Username - the username for your vCenter - administator@vsphere.local
+    5. Password - the password for your vCenter user - *******
+    6. Default Datastore - chose the vSphere datastore where the VMs will be stored
+    - You may also be prompted for a vSphere network if you have more than one option available to you
+    7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.181
+    8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.182
+    9. Base Domain - example.com
+    10. Cluster Name - ocp4
+    11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
+    12. Hit the enter key to start the install
+     
+     ![Install](/images/install01.png)
+    
 
