@@ -49,10 +49,10 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
    <img src="images/certs.jpg" width="950"/>
- 6. Unzip the download.zip that contains the certs.  In the resutling certs folder you'll see subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
+ 6. Unzip the download.zip file that contains the vCenter certs.  In the resutling certs folder you'll see three subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
   
    <img src="images/treecertsv2.jpg" width="350"/>
- 7. Run the following commads to update your stystems...
+ 7. Run the following commands to update your system trust.
  
     sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
     sudo update-ca-trust extract
@@ -88,8 +88,9 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
 
   
-    INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-       45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
-    INFO The file was found in cache: /home/pslucas/.cache/openshift-installer/image_cache/187f73af432c837eaa23361023b1656c. Reusing... INFO Creating infrastructure resources...         *
+    INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-  45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
+    INFO The file was found in cache: /home/pslucas/.cache/openshift-installer/image_cache/187f73af432c837eaa23361023b1656c. Reusing... 
+    INFO Creating infrastructure resources...         
     INFO Waiting up to 20m0s for the Kubernetes API at https://api.ocp4.example.com:6443... 
     INFO API v1.18.3+3107688 up                     
     INFO Waiting up to 40m0s for bootstrapping to 
