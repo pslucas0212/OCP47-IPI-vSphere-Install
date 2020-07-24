@@ -51,7 +51,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
    <img src="images/certs.jpg" width="850"/>
  6. Unzip the download.zip that contains the certs.  In the resutling certs folder you'll see subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
   
-   <img src="images/treecerts.jpg" width="700"/>
+   <img src="images/treecerts.jpg" width="450"/>
   7. Run the following commads to update your stystems...
     - sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
     - sudo update-ca-trust extract
