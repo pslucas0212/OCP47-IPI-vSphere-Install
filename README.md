@@ -48,6 +48,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 
  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
+  
    <img src="images/certs.jpg" width="850"/>
  6. Unzip the download.zip that contains the certs.  In the resutling certs folder you'll see subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
   
@@ -61,6 +62,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     - ./openshift-install create cluster --dir=ocp45 --log-level=info
   
   9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
+  
   
     Here is the list of questions the installer will ask you:
       1. SSH Public Key
