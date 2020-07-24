@@ -39,7 +39,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  2. After you logon, chose the vSphere tile
  
  <img src="images/vspheretile.jpg" width="500"/>
- 3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
+ 3. From the download page click the *Download Installer* button, click the *Download Pull Secret* button and click the *Download command-line tools* button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  <img src="images/download.jpg" width="600"/>
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
@@ -59,7 +59,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   <img src="images/certupdate.jpg" width="700"/>
   
-  8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
+  8. We are now ready to deploy the cluster.  Change to the installation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
     
     ./openshift-install create cluster --dir=ocp45 --log-level=info
   
@@ -85,7 +85,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 
   <img src="images/install01.png" width="800"/>
     
-  10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
+  10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if you watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
 
   
     INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-  45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
