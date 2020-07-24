@@ -77,6 +77,6 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
     12. Hit the enter key to start the install
      
-     ![Install](/images/install01.png)
+     ![](/images/install01.png)
     
 
