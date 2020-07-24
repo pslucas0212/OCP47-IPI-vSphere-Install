@@ -61,22 +61,22 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
   
-  Here is the list of questions the installer will ask you:
-    1. SSH Public Key
-    2. Platform - chose vSphere
-    3. vCenter - provide the url to your vCenter - vsca01.exanple.com
-    - You may be also prompted for a vSphere datacenter and vSphere cluster if have more than one option available to you.
-    4. Username - the username for your vCenter - administator@vsphere.local
-    5. Password - the password for your vCenter user - *******
-    6. Default Datastore - chose the vSphere datastore where the VMs will be stored
-    - You may also be prompted for a vSphere network if you have more than one option available to you
-    7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.181
-    8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.182
-    9. Base Domain - example.com
-    10. Cluster Name - ocp4
-    11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
-    12. Hit the enter key to start the install
+    Here is the list of questions the installer will ask you:
+      1. SSH Public Key
+      2. Platform - chose vSphere
+      3. vCenter - provide the url to your vCenter - vsca01.exanple.com
+        - You may be also prompted for a vSphere datacenter and vSphere cluster if have more than one option available to you.
+      4. Username - the username for your vCenter - administator@vsphere.local
+      5. Password - the password for your vCenter user - *******
+      6. Default Datastore - chose the vSphere datastore where the VMs will be stored
+        - You may also be prompted for a vSphere network if you have more than one option available to you
+      7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.181
+      8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.182
+      9. Base Domain - example.com
+      10. Cluster Name - ocp4
+      11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
+      12. Hit the enter key to start the install
      
-     ![](/images/install01.png)
+   ![](/images/install01.png)
     
 
