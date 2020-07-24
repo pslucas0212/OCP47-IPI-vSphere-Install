@@ -79,4 +79,19 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
      
    ![](/images/install01.png)
     
+  9. Now you wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.
+  
+    INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-       45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
+    INFO The file was found in cache: /home/pslucas/.cache/openshift-installer/image_cache/187f73af432c837eaa23361023b1656c. Reusing... INFO Creating infrastructure resources...         *
+    INFO Waiting up to 20m0s for the Kubernetes API at https://api.ocp4.example.com:6443... 
+    INFO API v1.18.3+3107688 up                     
+    INFO Waiting up to 40m0s for bootstrapping to 
+    INFO Waiting up to 30m0s for the cluster at https://api.ocp4.example.com:6443 to initialize... *
+W0723 17:47:56.542835   31492 reflector.go:326] k8s.io/client-go/tools/watch/informerwatcher.go:146: watch of *v1.ClusterVersion ended with: very short watch: k8s.io/client-go/tools/watch/informerwatcher.go:146: Unexpected watch close - watch lasted less than a second and no items received
+    INFO Waiting up to 10m0s for the openshift-console route to be created...
+    INFO Install complete!                           
+    INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/home/pslucas/ocp45install/ocp45/auth/kubeconfig' 
+    INFO Access the OpenShift web-console here: https://console-openshift-console.apps.ocp4.example.com
+    INFO Login to the console with user: "kubeadmin", and password: “K**************************98” 
+    INFO Time elapsed: 37m47s      
 
