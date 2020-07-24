@@ -28,7 +28,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   - eval "$(ssh-agent -s)"
   - ssh-add .ssh/ocp45
   
-  ![SSH agent](/images/ssh02.jpg)
+  ![SSH agent](images/ssh02.jpg)
  
  ### Get installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
