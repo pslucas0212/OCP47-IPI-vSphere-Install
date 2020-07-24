@@ -28,13 +28,13 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   - eval "$(ssh-agent -s)"
   - ssh-add .ssh/ocp45
   
-  ![SSH agent](/images/ssh02.jpg)
+  ![SSH agent](/images/ssh02.jpg| width=100)
  
  ### Get installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
  2. After you logon, chose the vSphere tile
  
- ![vSphere Tile](/images/vspheretile.jpg | width=100)
+ ![vSphere Tile](/images/vspheretile.jpg| width=100)
  3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  ![Download page](/images/download.jpg)
