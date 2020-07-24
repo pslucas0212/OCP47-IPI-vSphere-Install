@@ -37,7 +37,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  
  2. After you logon, chose the vSphere tile
  
- ![vSphere Tile](/images/vspheretile.jpg | wdith = 100px)
+ ![vSphere Tile](/images/vspheretile.jpg)
  3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  ![Download page](/images/download.jpg)
@@ -81,7 +81,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
       11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
       12. Hit the enter key to start the install
      
-   ![](/images/install01.png | width = 100px)
+   ![](/images/install01.png)
     
   10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
 
