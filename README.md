@@ -24,13 +24,10 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 1. Create ssh key 
     - ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
   
-  
-  
     <img src="images/SSHKey01.jpg" width="600"/>
 2. Start up ssh-agent and add the new key to the ssh-agent.  This key will be added during the installation.
     - eval "$(ssh-agent -s)"
     - ssh-add .ssh/ocp45
-  
   
     <img src="images/ssh02.jpg" width="600"/>
  
@@ -44,7 +41,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  
  <img src="images/download.jpg" width="600"/>
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
-    - tar xvf openshift-install-linux.tar.gz
+  - tar xvf openshift-install-linux.tar.gz
 
  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
