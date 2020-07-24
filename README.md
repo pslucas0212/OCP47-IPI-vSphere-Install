@@ -84,7 +84,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
    ![](/images/install01.png)
    _______________________________________
    
-<img src="images/install01.png" width="100"/>
+<img src="images/install01.png" width="600"/>
     
   10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
 
