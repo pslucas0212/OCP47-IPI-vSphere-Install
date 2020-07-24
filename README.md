@@ -1,13 +1,13 @@
 # OpenShift 4.5 vSphere Installer Provisioned Infrastructure Example
-The release of OpenShift 4.5 added a new vSphere IPI installation option that makes it very easy to quickly spin up an OCP cluster in an EXSi environment.  The "straight" out of the box installation creates three masters and three worker nodes with minimal effort.  IPI installation supports additional customizations, but in this example I will not use any of the customization capabilities.
+The release of OpenShift 4.5 added a new vSphere IPI installation option that makes it very easy to quickly spin up an OCP cluster in an EXSi environment.  The "straight" out of the box installation creates three masters noes and three worker nodes with minimal effort.  The vSphere IPI installation optional supports additional customizations, but in this example I will not use any of the customization capabilities.
 
-The lab I'm using for this installation is made up of three x86 8-core 64GB RAM machines formally used for gaming.  EXSI environment is a bare bones VMWare vSphere Essentials 6.7 setup.  I'm also using a two bay Synology NAS for shared storage across the vSphere cluster.  Finally I ran the installation from a RHEL 8 server instance that was hosting by DNS and DHCP services.  All the following instructions are completed this RHEL 8 server running in my vSphere cluster.
+FYI.... The lab I'm using for this installation is made up of three x86 8-core 64GB RAM machines formally used for gaming purposes.  The EXSI environment is a bare bones VMWare vSphere Essentials 6.7 setup.  I'm also using a two bay Synology NAS for shared storage across the vSphere cluster.  Finally I ran the installation from a RHEL 8 server instance that was hosting both DNS and DHCP services.  All the following instructions are run from a terminal on this RHEL 8 server VM running in my vSphere cluster.
 
 OCP 4.5 installation documentation can be found here -> https://docs.openshift.com/container-platform/4.5/welcome/index.html
 
 ## Installation Steps
 
-###Installation Pre-reqs:
+### Installation Pre-reqs:
 For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to the cluster.
 - DNS service - For the installation you need to define two static IP address.  One for the cluster api access - api.ocp4.example.com and one for cluster ingress access *.apps.ocp4.example.com. For my lab I use example.com as the domain.
   - Forward zone settings
@@ -17,21 +17,24 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     - api.ocp4	A	10.1.10.181
     - *.apps.ocp4	A	10.1.10.182
     - 181	IN	PTR	api.ocp4.example.com.
-- DHCP service
+    
+- DHCP service - no particular notes needed here
 
 ### Optional - Create an ssh key for password-less ssh to the ssh to master node for debugging, etc.
 1. Create ssh key 
-  - ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
+    - ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
   
-  ![SSH command](/images/SSHKey01.jpg)
+  ![SSH command](images/SSHKey01.jpg) 
 2. Start up ssh-agent and add the new key to the ssh-agent.  This key will be added during the installation.
-  - eval "$(ssh-agent -s)"
-  - ssh-add .ssh/ocp45
+    - eval "$(ssh-agent -s)"
+    - ssh-add .ssh/ocp45
   
-  ![SSH agent](images/ssh02.jpg)
+  ![SSH agent](/images/ssh02.jpg)
  
  ### Get installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
+ 
+ 
  2. After you logon, chose the vSphere tile
  
  ![vSphere Tile](/images/vspheretile.jpg)
@@ -40,7 +43,8 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  ![Download page](/images/download.jpg)
  
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
-  - tar xvf openshift-install-linux.tar.gz
+    - tar xvf openshift-install-linux.tar.gz
+  
   
   5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
@@ -51,15 +55,15 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   ![Tree Certs](/images/treecerts.jpg)
   
   7. Run the following commads to update your stystems...
-  - sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
-  - sudo update-ca-trust extract
+    - sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
+    - sudo update-ca-trust extract
   
   ![Cert update](/images/certupdate.jpg)
   
   8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
-  - ./openshift-install create cluster --dir=ocp45 --log-level=info
+    - ./openshift-install create cluster --dir=ocp45 --log-level=info
   
-  The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
+  9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
   
     Here is the list of questions the installer will ask you:
       1. SSH Public Key
@@ -79,7 +83,11 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
      
    ![](/images/install01.png)
     
-  9. Now you wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.
+  10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
+
+
+
+
   
     INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-       45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
     INFO The file was found in cache: /home/pslucas/.cache/openshift-installer/image_cache/187f73af432c837eaa23361023b1656c. Reusing... INFO Creating infrastructure resources...         *
@@ -94,4 +102,6 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     INFO Access the OpenShift web-console here: https://console-openshift-console.apps.ocp4.example.com
     INFO Login to the console with user: "kubeadmin", and password: “K**************************98” 
     INFO Time elapsed: 37m47s      
+
+11. You are ready to use your OCP 4.5 Cluster.  Don't forget to install the command line client that you downloaded  earlier.
 
