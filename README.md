@@ -40,25 +40,27 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  3. From the download page click the Download Installer button, click the Download Pull Secret button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  <img src="images/download.jpg" width="600"/>
- 4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
-  - tar xvf openshift-install-linux.tar.gz
+4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
+    - tar xvf openshift-install-linux.tar.gz
 
- 5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
+5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to Fyour vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
   
    <img src="images/certs.jpg" width="850"/>
  6. Unzip the download.zip that contains the certs.  In the resutling certs folder you'll see subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
   
    <img src="images/treecertsv2.jpg" width="450"/>
-  7. Run the following commads to update your stystems...
+ 7. Run the following commads to update your stystems...
     - sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
     - sudo update-ca-trust extract
   
   <img src="images/certupdate.jpg" width="700"/>
-  8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
-    - ./openshift-install create cluster --dir=ocp45 --log-level=info
   
-  9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
+  8. We are now ready to deploy the cluster.  Change to iinstallation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
+    
+    ./openshift-install create cluster --dir=ocp45 --log-level=info
+  
+ 9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
   
   
     Here is the list of questions the installer will ask you:
