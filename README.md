@@ -102,3 +102,4 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 
 11. You are ready to use your OCP 4.5 Cluster.  Don't forget to install the command line client that you downloaded  earlier.
 
+ 
