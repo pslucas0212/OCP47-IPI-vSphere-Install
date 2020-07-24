@@ -39,7 +39,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  2. After you logon, chose the vSphere tile
  
  <img src="images/vspheretile.jpg" width="500"/>
- 3. From the download page click the *Download Installer* button, click the *Download Pull Secret* button and click the *Download command-line tools* button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
+ 3. From the download page click the _Download Installer_ button, click the _Download Pull Secret_ button and click the _Download command-line tools_ button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  <img src="images/download.jpg" width="600"/>
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
