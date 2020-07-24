@@ -87,7 +87,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     INFO API v1.18.3+3107688 up                     
     INFO Waiting up to 40m0s for bootstrapping to 
     INFO Waiting up to 30m0s for the cluster at https://api.ocp4.example.com:6443 to initialize... *
-W0723 17:47:56.542835   31492 reflector.go:326] k8s.io/client-go/tools/watch/informerwatcher.go:146: watch of *v1.ClusterVersion ended with: very short watch: k8s.io/client-go/tools/watch/informerwatcher.go:146: Unexpected watch close - watch lasted less than a second and no items received
+    W0723 17:47:56.542835   31492 reflector.go:326] k8s.io/client-go/tools/watch/informerwatcher.go:146: watch of *v1.ClusterVersion ended with: very short watch: k8s.io/client-go/tools/watch/informerwatcher.go:146: Unexpected watch close - watch lasted less than a second and no items received
     INFO Waiting up to 10m0s for the openshift-console route to be created...
     INFO Install complete!                           
     INFO To access the cluster as the system:admin user when using 'oc', run 'export KUBECONFIG=/home/pslucas/ocp45install/ocp45/auth/kubeconfig' 
