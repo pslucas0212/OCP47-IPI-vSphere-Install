@@ -22,13 +22,13 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     
 - DHCP service - no particular notes needed here
 
-### Optional - Create an ssh key for password-less ssh to the ssh to master node for debugging, etc.
+### Optional - Create an ssh key for password-less ssh to the master node for debugging, etc.
 1. Create an ssh key 
         
         ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
   
     <img src="images/SSHKey01.jpg" width="600"/>
-2. Start up ssh-agent and add the new key to the ssh-agent.  This key will be added during the installation.
+2. Start up the ssh-agent and add the new key to the ssh-agent. 
 
         eval "$(ssh-agent -s)"
         ssh-add .ssh/ocp45
@@ -41,7 +41,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
  2. After you logon, chose the vSphere tile
  
  <img src="images/vspheretile.jpg" width="500"/>
- 3. From the download page click the _Download Installer_ button, click the _Download Pull Secret_ button and click the _Download command-line tools_ button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
+ 3. From the download page click the Download Installer button, click the Download Pull Secre button and click the Download command-line tools button.  Note that further down this page there is a button to download Red Hat Enterprise Linux CoreOS (RHCOS).  We will let the installation program grab that file for us.
  
  <img src="images/download.jpg" width="600"/>
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
@@ -50,7 +50,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 
  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to your vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
-   <img src="images/certs.jpg" width="950"/>
+   <img src="images/certs.png" width="950"/>
  6. Unzip the download.zip file that contains the vCenter certs.  In the resutling certs folder you'll see three subfolders for linux, mac and windows.  You can use the "tree certs" command to see the files and file structure.
   
    <img src="images/treecertsv2.jpg" width="350"/>
