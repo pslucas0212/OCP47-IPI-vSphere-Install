@@ -1,4 +1,7 @@
 # OpenShift 4.5 vSphere Installer Provisioned Infrastructure Example
+
+- Updated 2021-04-23
+
 The release of OpenShift 4.5 added a new vSphere IPI installation option that makes it very easy to quickly spin up an OCP cluster in an EXSi environment.  This is great for testing or development.
 
 The "straight" out of the box installation creates three masters noes and three worker nodes with minimal effort.  The vSphere IPI installation optional supports additional customizations, but in this example I will not use any of the customization capabilities.
@@ -12,13 +15,19 @@ OCP 4.5 installation documentation can be found here -> https://docs.openshift.c
 ### Installation Pre-reqs:
 For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to the cluster.
 - DNS service - For the installation you need to define two static IP address.  One for the cluster api access - api.ocp4.example.com and one for cluster ingress access *.apps.ocp4.example.com. For my lab I use example.com as the domain.
-  - Forward zone settings
-    - api.ocp4	IN	A	10.1.10.181
-    - *.apps.ocp4	IN	A	10.1.10.182
-  - Reverse zone settings
-    - api.ocp4	A	10.1.10.181
+  - Forward zone settings - example.com file
+    - api.ocp4	IN	A	10.1.10.201
+    - *.apps.ocp4	IN	A	10.1.10.202
+  - Reverse zone settings 10.1.10.db file
+    - api.ocp4	A	10.1.10.201
     - *.apps.ocp4	A	10.1.10.182
-    - 181	IN	PTR	api.ocp4.example.com.
+    - 201	IN	PTR	api.ocp4.example.com.
+
+- Verify that both forward and reverse looks up are working
+        
+      # dig api.ocp4.example.com
+      # dig -x 10.1.10.201
+      
     
 - DHCP service - no particular notes needed here
 
