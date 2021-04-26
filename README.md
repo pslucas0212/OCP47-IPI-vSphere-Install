@@ -1,14 +1,14 @@
-# OpenShift 4.5 vSphere Installer Provisioned Infrastructure Example
+# OpenShift 4.7 vSphere Installer Provisioned Infrastructure Example
 
-- Updated 2021-04-23
+- Updated 2021-04-26
 
-The release of OpenShift 4.5 added a new vSphere IPI installation option that makes it very easy to quickly spin up an OCP cluster in an EXSi environment.  This is great for testing or development.
+The release of OpenShift 4.7 added a new vSphere IPI installation option that makes it very easy to quickly spin up an OCP cluster in an EXSi environment.  This is great for testing or development.
 
 The "straight" out of the box installation creates three masters noes and three worker nodes with minimal effort.  The vSphere IPI installation optional supports additional customizations, but in this example I will not use any of the customization capabilities.
 
 FYI.... The lab I'm using for this installation is made up of three x86 8-core 64GB RAM machines formally used for gaming purposes.  The EXSI environment is a bare bones VMWare vSphere Essentials 6.7 setup.  I'm also using a two bay Synology NAS for shared storage across the vSphere cluster.  Finally I ran the installation from a RHEL 8 server instance that was hosting both DNS and DHCP services.  All the following instructions are run from a terminal on this RHEL 8 server VM running in my vSphere cluster.
 
-OCP 4.5 installation documentation can be found here -> https://docs.openshift.com/container-platform/4.5/welcome/index.html
+OCP 4.7 installation documentation can be found here -> [https://docs.openshift.com/container-platform/4.7/welcome/index.html](https://docs.openshift.com/container-platform/4.7/welcome/index.html)
 
 ## Installation Steps
 
@@ -20,7 +20,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
     - *.apps.ocp4	IN	A	10.1.10.202
   - Reverse zone settings 10.1.10.db file
     - api.ocp4	A	10.1.10.201
-    - *.apps.ocp4	A	10.1.10.182
+    - *.apps.ocp4	A	10.1.10.202
     - 201	IN	PTR	api.ocp4.example.com.
 
 - Verify that both forward and reverse looks up are working
@@ -34,17 +34,22 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 ### Optional - Create an ssh key for password-less ssh to the master node for debugging, etc.
 1. Create an ssh key 
         
-        ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/ocp45
+        $ ssh-keygen -t ed25519 -N '' -f ~/.ssh/ocp47
+        
+        [pslucas@ns02 ocp47install]$ ssh-keygen -t ed25519 -N '' -f ~/.ssh/ocp47
+        Generating public/private ed25519 key pair. 
+        Your identification has been saved in /home/pslucas/.ssh/ocp47.
+        Your public key has been saved in /home/pslucas/.ssh/ocp47.pub.
+        The key fingerprint is: ...
   
-    <img src="images/SSHKey01.jpg" width="600"/>
+   
 2. Start up the ssh-agent and add the new key to the ssh-agent. 
 
-        eval "$(ssh-agent -s)"
-        ssh-add .ssh/ocp45
+        $ eval "$(ssh-agent -s)"
+        $ ssh-add .ssh/ocp45
   
-    <img src="images/ssh02.jpg" width="600"/>
- 
- ### Get the OCP 4.5 installation software
+  
+ ### Get the OCP 4.7 installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
   
  2. After you logon, chose the vSphere tile
