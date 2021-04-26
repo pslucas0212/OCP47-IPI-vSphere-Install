@@ -91,7 +91,7 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
       6. Default Datastore - chose the vSphere datastore where the VMs will be stored
         - You may also be prompted for a vSphere network if you have more than one option available to you
       7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.201
-      8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.20inta2
+      8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.202
       9. Base Domain - example.com
       10. Cluster Name - ocp4
       11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
@@ -118,6 +118,6 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
     INFO Login to the console with user: "kubeadmin", and password: “K**************************98” 
     INFO Time elapsed: 37m47s      
 
-11. You are ready to use your OCP 4.5 Cluster.  Don't forget to install the command line client that you downloaded  earlier.
+11. You are ready to use your OCP 4.7 Cluster.  Don't forget to install the command line client that you downloaded  earlier.
 
  
