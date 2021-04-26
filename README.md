@@ -13,7 +13,7 @@ OCP 4.7 installation documentation can be found here -> [https://docs.openshift.
 ## Installation Steps
 
 ### Installation Pre-reqs:
-For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to the cluster.
+For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to the cluster.
 - DNS service - For the installation you need to define two static IP address.  One for the cluster api access - api.ocp4.example.com and one for cluster ingress access *.apps.ocp4.example.com. For my lab I use example.com as the domain.
   - Forward zone settings - example.com file
     - api.ocp4	IN	A	10.1.10.201
@@ -46,7 +46,7 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
 2. Start up the ssh-agent and add the new key to the ssh-agent. 
 
         $ eval "$(ssh-agent -s)"
-        $ ssh-add .ssh/ocp45
+        $ ssh-add ~/.ssh/ocp47
   
   
  ### Get the OCP 4.7 installation software
@@ -77,22 +77,21 @@ For this OCP 4.5 IPI vSphere installation, you need DNS and DHCP available to th
   
   8. We are now ready to deploy the cluster.  Change to the installation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
     
-    ./openshift-install create cluster --dir=ocp45 --log-level=info
+    ./openshift-install create cluster --dir=ocp47 --log-level=info
   
- 9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populted for you and you can use the up/down arrow key to chose the appropriate response.
+ 9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populated for you and you can use the up/down arrow key to chose the appropriate response.
   
   
     Here is the list of questions the installer will ask you:
       1. SSH Public Key
       2. Platform - chose vSphere
       3. vCenter - provide the url to your vCenter - vsca01.exanple.com
-        - You may be also prompted for a vSphere datacenter and vSphere cluster if have more than one option available to you.
       4. Username - the username for your vCenter - administator@vsphere.local
       5. Password - the password for your vCenter user - *******
       6. Default Datastore - chose the vSphere datastore where the VMs will be stored
         - You may also be prompted for a vSphere network if you have more than one option available to you
-      7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.181
-      8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.182
+      7. Virtual IP address for API - this is the API IP address we perviously add to our DNS service - 10.1.10.201
+      8. Viftual IP address for Ingress - this is the ingress IP address we perviously add to our DNS service - 10.1.10.20inta2
       9. Base Domain - example.com
       10. Cluster Name - ocp4
       11. Pull Secret - Copy and past the pull secret you downloaded in step 3.
