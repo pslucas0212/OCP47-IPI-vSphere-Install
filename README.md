@@ -24,16 +24,16 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
     - 201	IN	PTR	api.ocp4.example.com.
 
 - Verify that both forward and reverse looks up are working
-        
+```        
       # dig api.ocp4.example.com
       # dig -x 10.1.10.201
-      
+```      
     
 - DHCP service - no particular notes needed here
 
 ### Optional - Create an ssh key for password-less ssh to the master node for debugging, etc.
 1. Create an ssh key 
-        
+ ```       
         $ ssh-keygen -t ed25519 -N '' -f ~/.ssh/ocp47
         
         [pslucas@ns02 ocp47install]$ ssh-keygen -t ed25519 -N '' -f ~/.ssh/ocp47
@@ -42,12 +42,12 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
         Your public key has been saved in /home/pslucas/.ssh/ocp47.pub.
         The key fingerprint is: ...
   
-   
+```   
 2. Start up the ssh-agent and add the new key to the ssh-agent. 
-
+```
         $ eval "$(ssh-agent -s)"
         $ ssh-add ~/.ssh/ocp47
-  
+ ``` 
   
  ### Get the OCP 4.7 installation software
  1. Go to the Infrastructure Provider page on the Red Hat OpenShift Cluster Manager site and login -> https://cloud.redhat.com/openshift/install
@@ -59,9 +59,9 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
  
  <img src="images/download.jpg" width="600"/>
  4. I made a separate directory to run the installation for the OCP cluster and moved the openshift-install-linux.tar.gz and pull-secret files there.  In your "install" directory untar the openshift-install-linux.tar.gz
-
+```
       tar xvf openshift-install-linux.tar.gz
-
+```
  5. We need your vCenter’s trusted root CA certificates to allow the OCP installation program to access your vCenter via it's API.  To download the vCenter cerfiticate go to your vCenter homepage, click Download trusted root CA certificates link (see right hand side of the homepage).
   
    <img src="images/certs.png" width="950"/>
@@ -69,16 +69,16 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
   
    <img src="images/treecertsv2.jpg" width="350"/>
  7. Run the following commands to update your system trust.
- 
-    sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
-    sudo update-ca-trust extract
-  
+``` 
+    $ sudo cp certs/lin/* /etc/pki/ca-trust/source/anchors
+    $ sudo update-ca-trust extract
+```  
   <img src="images/certupdate.jpg" width="700"/>
   
   8. We are now ready to deploy the cluster.  Change to the installation directory.  In the installation directory create a directory to store the installation artifacts (configuration, authentication information, log files, etc.)  I called my installtion artifacts directory ocp45.  Run the following installation command.
-    
-    ./openshift-install create cluster --dir=ocp47 --log-level=info
-  
+ ```   
+   $ ./openshift-install create cluster --dir=ocp47 --log-level=info
+ ``` 
  9. The install command will step you through a set of questions regarding the installation.  Some answers may be pre-populated for you and you can use the up/down arrow key to chose the appropriate response.
   
   
@@ -102,7 +102,7 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
     
   10. Wait for the install to complete.  You'll see a series of messages like those below as the install progresses and if you watch the vCenter admin screen you'll see images created, rebooted, etc. as the cluster is configured and started.  This installation in my lab took about 38 minutes.
 
-  
+ ``` 
     INFO Obtaining RHCOS image file from 'https://releases-art-rhcos.svc.ci.openshift.org/art/storage/releases/rhcos-4.5/45.82.202007141718-0/x86_64/rhcos-  45.82.202007141718-0-vmware.x86_64.ova?sha256=9c977abeba0aeedc222ae9dd3d27e659bb5c959c9fd6b199f940d16de07ded4e' 
     INFO The file was found in cache: /home/pslucas/.cache/openshift-installer/image_cache/187f73af432c837eaa23361023b1656c. Reusing... 
     INFO Creating infrastructure resources...         
@@ -117,7 +117,7 @@ For this OCP 4.7 IPI vSphere installation, you need DNS and DHCP available to th
     INFO Access the OpenShift web-console here: https://console-openshift-console.apps.ocp4.example.com
     INFO Login to the console with user: "kubeadmin", and password: “K**************************98” 
     INFO Time elapsed: 37m47s      
-
+```
 11. You are ready to use your OCP 4.7 Cluster.  Don't forget to install the command line client that you downloaded  earlier.
 
  
